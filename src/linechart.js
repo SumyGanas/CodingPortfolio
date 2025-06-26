@@ -13,75 +13,49 @@ import { doc, getDoc } from "firebase/firestore";
 //Gets all of the trading account/portfolio data from portfolio collection
 async function getPortData() {
     const cashArray = []
-    const changeArray = []
-    const q = query(collection(db, "portfolio"), limitToLast(30), orderBy("created_at"))
-    const querySnapshot = await getDocs(q);
+    const querySnapshot = await getDocs(collection(db, "portfolio"));
     querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-    cashArray.push([doc.id,doc.data().cash])
-    changeArray.push([doc.id, (((Number(doc.data().portfolio_value) - Number(doc.data().last_equity))/Number(doc.data().portfolio_value))*100).toFixed(2)])
-    
+    cashArray.push([doc.id,doc.data().cash])    
   })
-    return changeArray;
+    return cashArray;
 };
 
-// Get last 30 days of SPY data from FMP
-async function getSpyData() {
-  const spyArray = []
-  const changeArray = []
-  const apiKey = 'Yb5fn72ew0DmFJ6yAtCEtV9Ez26oB248'
-  const path = `https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=SPY&apikey=${apiKey}`
-  try {
-    const res = await fetch(path);
-    const data = await res.json();
-    spyArray.push(data.slice(0, 30)); 
-    for (let i = 0; i < spyArray[0].length; i++) {
-      changeArray.push(spyArray[0][i].changePercent);
-    }
-    return changeArray;
-  } catch (err) {
-    console.error('Fetch error:', err);
-    return [];
-  }
-}
-
-
-//Gets all the orders from a particular day
 async function GetOrderData(dateQuery) {
-  const orderArray = [];
-  const querySnapshot = await getDocs(collection(db, "orders", dateQuery, "orders"));
-  querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  const order = {
-    "id" : doc.id,
-    "symbol" : doc.data().symbol,
-    "qty" : doc.data().qty,
-    "transaction" : doc.data().side,
-    "price" : doc.data().filled_avg_price 
-  }
-  orderArray.push(order)
-  });
-  return orderArray
-}
-
-const OrderTable = ({ dateQuery }) => {
-  
-  const [orders, setOrderArray] = useState([]);
-  useEffect (() => {
-    async function getOrderArray(dateQuery) {
-       const orderArray = await GetOrderData(dateQuery);
-      setOrderArray(orderArray);
+    const orderArray = [];
+    const querySnapshot = await getDocs(collection(db, "orders", dateQuery, "orders"));
+    querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    const order = {
+      "id" : doc.id,
+      "symbol" : doc.data().symbol,
+      "qty" : doc.data().qty,
+      "transaction" : doc.data().side,
+      "price" : doc.data().filled_avg_price 
     }
-    getOrderArray(dateQuery);
+    orderArray.push(order)
+    });
+    return orderArray
+  }
+
+
+const TransactionTable = ({ dateQuery }) => {
+  
+  const [orders, setTransArray] = useState([]);
+  useEffect (() => {
+    async function getTransArray(dateQuery) {
+       const TransArray = await GetOrderData(dateQuery);
+      setTransArray(TransArray);
+    }
+    getTransArray(dateQuery);
   }, [dateQuery]);
 
-  function renderOrder(order) {
+
+  function renderTransaction(order) {
     return (
       <tr key={order.id}>
         <td>${order.symbol}</td>
-        <td>{order.qty}</td>
-        <td>{order.transaction}</td>
-        <td>{order.price}</td>
+        <td>{(order.qty * order.price)}</td>
       </tr>
     )
   }
@@ -94,13 +68,11 @@ const OrderTable = ({ dateQuery }) => {
                 <thead>
                   <tr>
                   <th>Symbol</th>
-                  <th>Quantity</th>
-                  <th>Transaction</th>
-                  <th>Price per Share</th>
+                  <th>Money Spent</th>
                   </tr> 
                 </thead>
                 <tbody>
-                  {orders.map(renderOrder)}
+                  {orders.map(renderTransaction)}
                 </tbody>
              </>
             ) : (
@@ -119,16 +91,13 @@ const OrderTable = ({ dateQuery }) => {
   );
 }
 
-const PortChart = () => {
+const LineChart = () => {
   
   const [data, setData] = useState([]);
-  const [spyData, setSpyData] = useState([])
   useEffect ( () => {
     async function getPort() {
       const portData = await getPortData();
-      const spyVals = await getSpyData();
       setData(portData);
-      setSpyData(spyVals);
     } 
     getPort(); 
     
@@ -151,30 +120,22 @@ const PortChart = () => {
     const chartData = {
       labels: labels,
       datasets: [{
-        label: 'Portfolio Change',
+        label: 'Portfolio Value',
         data: values,
         borderColor: '#b1f0df',
         borderWidth: 2,
         backgroundColor: '#b1f0df'
-      }, 
-    {
-      label: 'Spy Change',
-        data: spyData,
-        borderColor: '#945761',
-        borderWidth: 2,
-        backgroundColor: '#945761'
-    }]
+      }]
     };
   
     // Chart options
     const chartOptions = {
-
       scales: {
         y: {
           beginAtZero: true,
           ticks: {
             callback: function(value, index, ticks) {
-              return value + '%';
+              return '$'+value.toLocaleString();
           }
           }
         }
@@ -189,7 +150,7 @@ const PortChart = () => {
                     label += ': ';
                 }
                 if (context.parsed.y !== null) {
-                    label += `${context.parsed.y}%`
+                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
                 }
                 return label;
               },
@@ -215,10 +176,10 @@ const PortChart = () => {
         
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Order Details</Modal.Title>
+            <Modal.Title>Portfolio Transactions</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <OrderTable dateQuery={label}/>  
+            <TransactionTable dateQuery={label}/>  
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
@@ -233,4 +194,4 @@ const PortChart = () => {
     
   };
 
-export default PortChart;
+export default LineChart;

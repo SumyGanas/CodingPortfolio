@@ -18,11 +18,10 @@ The code involves three main classes `StrategyHandler()` and `StrategyExecution(
 
 # AiScraper Application
 
-This app is used to stay informed on the daily deals from Ulta and Beaauty Bay. 
+This app is used to stay informed on the daily deals from Ulta Beauty 
 
 It uses Google's Gemini AI to provide insights and simplify shopping:
 - Input your personal preferences to figure out what the best products for you
 - Decide what particular items you should buy from which company today
-- 
+- Find the best deals offered every day
 
-It sends a daily email to your google account containing the updated deals and insights from sephora, ulta and macys.
