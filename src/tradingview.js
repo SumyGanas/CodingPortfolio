@@ -7,25 +7,45 @@ function TradingViewWidget() {
   useEffect(
     () => {
       const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
       script.type = "text/javascript";
       script.async = true;
       script.innerHTML = `
         {
-            "autosize": true,
-            "symbol": "OANDA:SPX500USD",
-            "interval": "D",
-            "timezone": "America/New_York",
-            "theme": "light",
-            "style": "1",
-            "locale": "en",
-            "enable_publishing": false,
-            "allow_symbol_change": false,
-            "backgroundColor": "rgba(185, 197, 208, 0.2)",
-            "gridColor": "rgba(64, 41, 53, 0.1)",
-            "hide_top_toolbar": true,
-            "calendar": false,
-            "support_host": "https://www.tradingview.com"
+          "symbols": [
+            [
+              "AMEX:SPY|1M"
+            ]
+          ],
+          "chartOnly": false,
+          "width": "100%",
+          "height": "100%",
+          "locale": "en",
+          "colorTheme": "light",
+          "autosize": true,
+          "showVolume": false,
+          "showMA": false,
+          "hideDateRanges": false,
+          "hideMarketStatus": true,
+          "hideSymbolLogo": false,
+          "scalePosition": "right",
+          "scaleMode": "Normal",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+          "fontSize": "10",
+          "noTimeScale": false,
+          "valuesTracking": "1",
+          "changeMode": "price-and-percent",
+          "chartType": "line",
+          "maLineColor": "#2962FF",
+          "maLineWidth": 1,
+          "backgroundColor":"rgba(255,255,255,0.17)",
+          "maLength": 9,
+          "headerFontSize": "small",
+          "lineWidth": 3,
+          "lineType": 0,
+          "dateRanges": [
+            "1m|1D"
+          ]
         }`;
       container.current.appendChild(script);
     },
@@ -33,9 +53,9 @@ function TradingViewWidget() {
   );
 
   return (
-    <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" }}>
-      <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%"}}></div>
-      <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noreferrer noopener nofollow" target="_blank"><span className="blue-text">Interactive chart from TradingView.com</span></a></div>
+    <div className="tradingview-widget-container" ref={container}>
+      <div className="tradingview-widget-container__widget"></div>
+      <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
     </div>
   );
 }

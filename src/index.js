@@ -1,9 +1,7 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
 import './index.css';
 import TradingApp from './TradingApp';
-import AiAssistant from './AiAssistant';
-import ResumeApp from './ResumeApp';
+import AiAssistant from './AiApp';
 import Home from './Home';
 import ReactDOM from "react-dom/client";
 import {
@@ -14,11 +12,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ErrorPage from "./error-page";
 
-
 const Router = createBrowserRouter([
       {
         path: "/",
-        element: <TradingApp />,
+        element: <Home />,
         errorElement: <ErrorPage />,
     },
     {
@@ -33,9 +30,11 @@ const Router = createBrowserRouter([
     },
   ]);
 
+  
+
 ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={Router} />
-);
+)
 
 
 
