@@ -6,9 +6,7 @@ import { useRef, useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
-import { Chart } from 'chart.js/auto';
 import bulb from './static_files/bulb.png';
-import { doc, getDoc } from "firebase/firestore";
 
 //Gets all of the trading account/portfolio data from portfolio collection
 async function getPortData() {

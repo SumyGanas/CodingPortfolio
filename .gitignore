@@ -1,2 +1,11 @@
-node_modules
-build/
+node_modules/
+.env
+.env.local
+.env.*.local
+.DS_Store
+npm-debug.log*
+.vscode/
+.firebase/
+firestore-debug.log
+ui-debug.log
+dist/
