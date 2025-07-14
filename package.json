@@ -2,13 +2,14 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.10.0",
     "bootstrap": "^5.3.3",
-    "chart.js": "^4.4.2",
+    "chart.js": "^4.5.0",
     "cors": "^2.8.5",
     "firebase": "^10.10.0",
     "firebase-admin": "^12.0.0",
@@ -17,18 +18,17 @@
     "prismjs-themes": "^2.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
-    "react-chartjs-2": "^5.2.0",
+    "react-chartjs-2": "^5.3.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
     "react-spinners": "^0.14.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "eslintConfig": {
     "extends": [
@@ -49,8 +49,11 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
     "babel-plugin-prismjs": "^2.1.0",
     "html-loader": "^5.0.0",
-    "react-app-rewired": "^2.2.1"
+    "react-app-rewired": "^2.2.1",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
   }
 }

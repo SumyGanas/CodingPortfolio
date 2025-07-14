@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect } from 'react';
-import HeaderBar from './HeaderBar.js';
-import CommonAncestor from './AiComponent.js';
+import HeaderBar from './HeaderBar.jsx';
+import CommonAncestor from './AiComponent.jsx';
 import AISAImg from './static_files/AI Shopping Assistant Diagram.png'
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.min.js';

@@ -1,8 +1,8 @@
 import './App.css';
-import PortChart from './portchart.js';
-import LineChart from './linechart.js';
-import React, { useEffect, useState } from 'react';
-import HeaderBar from './HeaderBar.js';
+import PortChart from './portchart.jsx';
+import LineChart from './linechart.jsx';
+import React, { useEffect } from 'react';
+import HeaderBar from './HeaderBar.jsx';
 import TblcImg from './static_files/Tradingbot Diagram.png';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.min.js';

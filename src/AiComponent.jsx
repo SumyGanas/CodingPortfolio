@@ -9,10 +9,8 @@ import orgate from "./static_files/or-gate.png"
 import orgate1 from "./static_files/or-gate1.png"
 
 const function_url = 'https://receive-query-dy3kdkbuyq-uc.a.run.app'
-//const test_function_url = 'http://127.0.0.1:5001/alpine-figure-414421/us-central1/receive_query'
 
 const CommonAncestor = () => {
-  // Define a state hook
   const { formData, handleChange, handleSubmit, response, loading, err, initialScreen, handleDealSubmit, error } = useFormdata(function_url);
 
   return (

@@ -1,6 +1,5 @@
 import React from 'react'
-import HeaderBar from './HeaderBar.js';
-import AboutMe from './static_files/aboutme.js';
+import HeaderBar from './HeaderBar.jsx';
 
 const Home = () => {
     return (
