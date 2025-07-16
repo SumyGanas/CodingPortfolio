@@ -25,7 +25,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview --host",
+    "preview": "vite preview --host --port=8080",
     "test": "vitest"
   },
   "eslintConfig": {
