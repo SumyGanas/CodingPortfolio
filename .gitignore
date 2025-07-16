@@ -10,4 +10,3 @@ firestore-debug.log
 ui-debug.log
 dist/
 apphosting.emulator.yaml
-src/firebase.js
