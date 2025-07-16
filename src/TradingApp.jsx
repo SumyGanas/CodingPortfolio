@@ -1,12 +1,11 @@
-import './App.css';
+import './styles/App.css';
 import PortChart from './portchart.jsx';
 import LineChart from './linechart.jsx';
 import React, { useEffect } from 'react';
 import HeaderBar from './HeaderBar.jsx';
-import TblcImg from './static_files/Tradingbot Diagram.png';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.min.js';
-import './static_files/custom-theme.css';
+import './styles/custom-theme.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Col from 'react-bootstrap/Col';
@@ -213,7 +212,7 @@ return (
     <h2>Software Architecture Diagram</h2>
     <hr/>
     <div className="blog-post language-python" id="htmldata">
-    <Image src={TblcImg} fluid rounded className="mt-3 mb-4" alt="Software Architecture Diagram"/>
+    <Image src="/tradingbot-diagram.png" fluid rounded className="mt-3 mb-4" alt="Software Architecture Diagram"/>
 
     <h2>How it works:</h2>
     <hr/> 

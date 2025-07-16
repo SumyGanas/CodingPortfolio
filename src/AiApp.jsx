@@ -1,11 +1,10 @@
-import './App.css';
+import './styles/App.css';
 import React, { useEffect } from 'react';
 import HeaderBar from './HeaderBar.jsx';
 import CommonAncestor from './AiComponent.jsx';
-import AISAImg from './static_files/AI Shopping Assistant Diagram.png'
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.min.js';
-import './static_files/custom-theme.css';
+import './styles/custom-theme.css';
 import Image from 'react-bootstrap/Image';
 
 const AiAssistant = () => {
@@ -198,7 +197,7 @@ def check_if_cached(query: str):
 
                       <h2>Software Architecture Diagram</h2>
                      <hr/>
-                     <Image src={AISAImg} fluid rounded className="mt-3 mb-4" alt="Software Architecture Diagram"/>
+                     <Image src="/ai-shopping-assistant-diagram.png" fluid rounded className="mt-3 mb-4" alt="Software Architecture Diagram"/>
     
                       <h2>How it works:</h2>
                       <hr/> 
@@ -213,7 +212,7 @@ def check_if_cached(query: str):
 
                       <p>This app uses the Google Cloud Gemini API to facilitate AI calls.
                       Read the Gemini API Docs <a href="https://ai.google.dev/gemini-api/docs">here.</a></p>
-                        <p>
+
                       <h6><strong>Specs:</strong></h6>
                       <h6>The Back-end</h6>
                       <ul>
@@ -235,7 +234,7 @@ def check_if_cached(query: str):
                       <a href="https://ai.google.dev/">Google Cloud Gemini API</a>
                       </li>
                       </ul>
-                      </p>
+
                       <h2>The Cloud Functions</h2>
                       <hr/>
                       <p>The code involves an HTTPS cloud function <code>receive_query()</code> and a scheduled cloud function <code>databasecleanup()</code>. They are both a part of the cloud functions for Firebase SDK (as opposed to the cloud functions used in the trading bot project). The HTTPS function is used to receive user requests and query the AI and the scheduled function is used to cache the Ulta promotions in Cloud Storage and Clean up old and irrelavant query caches from Firestore. The code snippets featured below are only to give the reader an idea of how the app is programmed to execute. <b>It does not include all the methods and functions used.</b> The full code for this app is available on GitHub at: </p>

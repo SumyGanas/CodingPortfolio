@@ -6,7 +6,6 @@ import { useRef, useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
-import bulb from './static_files/bulb.png';
 
 //Gets all of the trading account/portfolio data from portfolio collection
 async function getPortData() {
@@ -185,7 +184,7 @@ const LineChart = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-        <div><span style={{color : '#414e75', fontSize : '16px'}}><img className="img img-fluid p-1" src={bulb} alt="Logo" width = "25" height = "25" /> Click on the points to view order details</span> </div>
+        <div><span style={{color : '#414e75', fontSize : '16px'}}><img className="img img-fluid p-1" src="/bulb.png" alt="Logo" width = "25" height = "25" /> Click on the points to view order details</span> </div>
       </div>
       
     );
