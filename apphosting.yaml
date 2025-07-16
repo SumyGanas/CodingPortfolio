@@ -5,7 +5,7 @@ build:
   command: npm run build
   dir: .
 serve:
-  command: npm run preview
+  command: npm run preview -- --port=8080 --host
   dir: .
 
 #Container settings
