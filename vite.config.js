@@ -9,6 +9,9 @@ export default defineConfig({
   server: {
     historyApiFallback: true,
   },
+  preview: {
+    historyApiFallback: true,
+  },  
   test: {
     globals: true,
     environment: 'jsdom',
