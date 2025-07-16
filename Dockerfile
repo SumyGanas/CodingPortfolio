@@ -1,13 +1,24 @@
-FROM node:current-alpine3.22
+# Build
+FROM node:20-alpine AS builder
 
-WORKDIR /usr/local/app
+WORKDIR /app
 
 COPY package*.json ./
-
-RUN npm install
+RUN npm ci
 
 COPY . .
+RUN npm run build
 
-EXPOSE 5173
+# Runtime
+FROM node:20-alpine AS runner
 
-CMD ["npm", "run", "dev"]
+WORKDIR /app
+
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
+
+RUN npm ci --omit=dev
+
+EXPOSE 4173
+
+CMD ["npm", "run", "preview"]

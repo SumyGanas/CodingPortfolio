@@ -44,10 +44,8 @@ const Home = () => {
           <br/> <br/>  <br/>  <br/>
           <footer className="blog-footer">
             <p style={{display : 'block', padding : '12px', textAlign : "center"}}>All Rights Reserved. Made by Sumy Ganas 2024. </p>
-            <p>
            <div style={{textAlign:"center", fontSize:"12px"}}>Illustrations by <a href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a></div>
               
-            </p>
           </footer>
           </div>
       </>

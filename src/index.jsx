@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './styles/index.css';
 import TradingApp from './TradingApp';
 import AiAssistant from './AiApp';
 import Home from './Home';

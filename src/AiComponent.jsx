@@ -1,12 +1,8 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import useFormdata from './formDataHandler'; 
-import './App.css';
+import './styles/App.css';
 import BeatLoader from "react-spinners/BeatLoader";
-import eyeshadowImg from "./static_files/eye-shadow.png"
-import onlineshopping from "./static_files/online-shopping.png"
-import orgate from "./static_files/or-gate.png"
-import orgate1 from "./static_files/or-gate1.png"
 
 const function_url = 'https://receive-query-dy3kdkbuyq-uc.a.run.app'
 
@@ -20,8 +16,8 @@ const CommonAncestor = () => {
       <div className="card-body" id="aicol">  
       <FormComponent formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} error={error}/>
       <div className='form-or'></div>
-      <img src={orgate} height={35} width={35} style={{marginRight : "5px"}}></img> OR 
-      <img src={orgate1} height={35} width={35} style={{marginLeft : "5px"}}></img>
+      <img src="/or-gate.png" height={35} width={35} style={{marginRight : "5px"}}></img> OR 
+      <img src="/or-gate1.png" height={35} width={35} style={{marginLeft : "5px"}}></img>
       <div className='buttonDiv'>
           <button type="submit" id='button-1' onClick={handleDealSubmit}>Click here to get the best value deals</button>
       </div>
@@ -206,7 +202,7 @@ if(Object.keys(response).length === 3){
                 );
             })}
         <div className='respImg'> 
-        <img src={eyeshadowImg} width={300} height={300}></img>
+        <img src="/eye-shadow.png" width={300} height={300}></img>
         </div>
         </div>
     );
@@ -242,7 +238,7 @@ if(Object.keys(response).length === 3){
         </ol>
         </div>
         <div className='respImg'> 
-        <img src={onlineshopping} width={300} height={300}></img>
+        <img src="/online-shopping.png" width={300} height={300}></img>
         </div>
     </div>
     </>

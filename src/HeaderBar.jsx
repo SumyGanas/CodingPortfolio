@@ -1,10 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import robot from './static_files/robot.png';
 import React from 'react'
-import './App.css'
+import './styles/App.css'
 
 const HeaderBar = () => {
     return (
@@ -18,7 +16,7 @@ const HeaderBar = () => {
       </header>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <img className="img img-fluid p-1" src={robot} alt="Logo" width = "50" height = "50" />
+          <img className="img img-fluid p-1" src="/robot.png" alt="Logo" width = "50" height = "50" />
           <Navbar.Brand href="/" >&#123;Sumy Ganas&#125;</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
