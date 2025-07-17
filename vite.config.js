@@ -12,7 +12,10 @@ export default defineConfig({
   preview: {
     historyApiFallback: true,
     port: 8080,
-    host: true
+    host: true,
+    allowedHosts: [
+      't-2261040980---portfolio-web-app-dy3kdkbuyq-uc.a.run.app'
+    ]
   },  
   test: {
     globals: true,
