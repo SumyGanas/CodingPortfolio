@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "vitest"
+    "test": "vitest",
+    "start": "vite preview --port=8080 --host"
   },
   "type": "module",
   "private": true,
