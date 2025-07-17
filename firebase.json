@@ -1,5 +1,5 @@
 { "hosting": {
-  "site": "portfolio-web-app",
+  "site": "alpine-figure-414421",
   "public": "dist",
   "ignore": [
     "firebase.json",
