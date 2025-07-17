@@ -1,5 +1,5 @@
 import React from 'react';
-import db from './firebase.js'
+import { db } from './firebase.js'
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -29,7 +29,7 @@ ChartJS.register(
 async function getPortData() {
     const cashArray = []
     const changeArray = []
-    const q = query(collection(db, "portfolio"), limitToLast(30), orderBy("created_at"))
+    const q = query(collection(db, "portfolio"), orderBy("created_at"), limitToLast(30))
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
