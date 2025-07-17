@@ -1,8 +1,13 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "portfolio-web-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest"
+  },
   "type": "module",
+  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -22,12 +27,7 @@
     "vite": "^7.0.4",
     "web-vitals": "^5.0.3"
   },
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview --host --port=8080",
-    "test": "vitest"
-  },
+
   "eslintConfig": {
     "extends": [
       "react-app",
