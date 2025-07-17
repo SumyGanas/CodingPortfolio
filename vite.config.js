@@ -11,6 +11,8 @@ export default defineConfig({
   },
   preview: {
     historyApiFallback: true,
+    port: 8080,
+    host: true
   },  
   test: {
     globals: true,

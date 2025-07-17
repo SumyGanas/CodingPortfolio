@@ -1,13 +1,7 @@
 #Settings for Cloud Run 
 name: portfolio-web-app
 runtime: nodejs24
-build:
-  command: npm run build
-  dir: .
-serve:
-  command: npm run preview -- --port=8080 --host
-  dir: .
-
+ 
 #Container settings
 runConfig:
   minInstances: 1
