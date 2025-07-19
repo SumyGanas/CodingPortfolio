@@ -1,15 +1,24 @@
-{ "hosting": {
-  "site": "alpine-figure-414421",
-  "public": "dist",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ],
-  "rewrites": [
-    { "source": "**", "destination": "/index.html" }
-  ]
-},
+{ "apphosting": [
+  {
+    "backendId": "portfolio-web-app",
+    "rootDir": ".",
+    "ignore": [
+      "node_modules",
+      "build",
+      ".env",
+      ".env.local",
+      ".env.*.local",
+      ".DS_Store",
+      "npm-debug.log*",
+      ".vscode",
+      ".firebase",
+      "firestore-debug.log",
+      "ui-debug.log",
+      "dist",
+      "apphosting.emulator.yaml"
+    ]
+  }
+],
   "emulators": {
     "singleProjectMode": true,
     "firestore": {
