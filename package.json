@@ -6,7 +6,7 @@
     "build": "vite build",
     "test": "vitest",
     "preview":"vite preview",
-    "start": "vite serve --port=8080"
+    "start": "vite serve --port=8080 --host"
   },
   "type": "module",
   "private": true,
