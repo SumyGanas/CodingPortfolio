@@ -16,7 +16,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
-console.log("VITE_FIREBASE_API_KEY:", import.meta.env?.VITE_FIREBASE_API_KEY);
+
 
 export { auth, db };
 
