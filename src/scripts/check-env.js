@@ -8,8 +8,8 @@ const required_vars = [
   ];
 
   const missing = required_vars.filter((
-    required_var) => process.env[required_var] === '' || 
-    process.env[required_var] === undefined
+    required_var) => import.meta.env[required_var] === '' || 
+    import.meta.env[required_var] === undefined
   );
 
   if (missing.length > 0) {
