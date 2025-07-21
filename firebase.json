@@ -22,26 +22,6 @@
     { "source": "**", "destination": "/index.html" }
   ]
 },
-  "apphosting": [
-  {
-    "backendId": "portfolio-web-app",
-    "ignore": [
-      "node_modules",
-      "build",
-      ".env",
-      ".env.local",
-      ".env.*.local",
-      ".DS_Store",
-      "npm-debug.log*",
-      ".vscode",
-      ".firebase",
-      "firestore-debug.log",
-      "ui-debug.log",
-      "dist",
-      "apphosting.emulator.yaml"
-    ]
-  }
-],
   "emulators": {
     "singleProjectMode": true,
     "firestore": {
