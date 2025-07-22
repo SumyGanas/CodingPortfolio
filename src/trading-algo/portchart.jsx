@@ -1,5 +1,5 @@
 import React from 'react';
-import { db } from './firebase.js'
+import { db } from '../firebase.js'
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,

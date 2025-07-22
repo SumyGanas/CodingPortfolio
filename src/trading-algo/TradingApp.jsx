@@ -1,8 +1,9 @@
 import './styles/App.css';
 import PortChart from './portchart.jsx';
 import LineChart from './linechart.jsx';
+import TermsOfUse from '../Termsofuse.jsx';
 import React, { useEffect } from 'react';
-import HeaderBar from './HeaderBar.jsx';
+import HeaderBar from '../HeaderBar.jsx';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.min.js';
 import './styles/custom-theme.css';
@@ -314,7 +315,7 @@ return (
       </p>
       <br/> <br/>  <br/>  <br/>
       <footer className="blog-footer">
-        <p style={{display : 'block', padding : '12px', textAlign : "center"}}>All Rights Reserved. Made by Sumy Ganas 2024.</p>
+        <p style={{display : 'block', padding : '12px', textAlign : "center"}}>All Rights Reserved. <TermsOfUse /> <br/> Copyright © 2024 Sumy Ganas</p>
         
       </footer>
   </>
