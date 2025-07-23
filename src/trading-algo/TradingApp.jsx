@@ -1,12 +1,11 @@
-import './styles/App.css';
+import '../styles/App.css';
 import PortChart from './portchart.jsx';
 import LineChart from './linechart.jsx';
-import TermsOfUse from '../Termsofuse.jsx';
 import React, { useEffect } from 'react';
-import HeaderBar from '../HeaderBar.jsx';
+import HeaderBar from '../nav/HeaderBar.jsx';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.min.js';
-import './styles/custom-theme.css';
+import '../styles/custom-theme.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Col from 'react-bootstrap/Col';
@@ -14,6 +13,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Image from 'react-bootstrap/Image';
+import FooterBar from '../footer/footer.jsx';
 
 
 const Link = ({ id, children, title }) => (
@@ -310,14 +310,9 @@ return (
           </div>
           </div>
       </main>
-      <p>
-          <a href="#nav-bar" style={{display : 'block', padding : '12px', textAlign : "center"}}>Back to top</a>
-      </p>
+      <a href="#nav-bar" style={{display : 'block', padding : '12px', textAlign : "center"}}>Back to top</a>
       <br/> <br/>  <br/>  <br/>
-      <footer className="blog-footer">
-        <p style={{display : 'block', padding : '12px', textAlign : "center"}}>All Rights Reserved. <TermsOfUse /> <br/> Copyright © 2024 Sumy Ganas</p>
-        
-      </footer>
+      <FooterBar />
   </>
 );}
 

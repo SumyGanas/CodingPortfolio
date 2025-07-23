@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/index.css';
-import TradingApp from './TradingApp';
-import AiAssistant from './AiApp';
+import TradingApp from './trading-algo/TradingApp';
+import AiAssistant from './ai-app/AiApp';
 import Home from './Home';
 import ReactDOM from "react-dom/client";
 import {

@@ -1,5 +1,6 @@
 import React from 'react'
-import HeaderBar from './HeaderBar.jsx';
+import HeaderBar from './nav/HeaderBar.jsx';
+import FooterBar from './footer/footer.jsx';
 
 const Home = () => {
     return (
@@ -40,13 +41,9 @@ const Home = () => {
           </div>
         </main>
 
-            <a href="#nav-bar" style={{display : 'block', padding : '12px', textAlign : "center"}}>Back to top</a>
+          <a href="#nav-bar" style={{display : 'block', padding : '12px', textAlign : "center"}}>Back to top</a>
           <br/> <br/>  <br/>  <br/>
-          <footer className="blog-footer">
-            <p style={{display : 'block', padding : '12px', textAlign : "center"}}>All Rights Reserved. Made by Sumy Ganas 2024. </p>
-           <div style={{textAlign:"center", fontSize:"12px"}}>Illustrations by <a href="https://icons8.com/illustrations/author/zD2oqC8lLBBA">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a></div>
-              
-          </footer>
+          <FooterBar />
           </div>
       </>
     );}
