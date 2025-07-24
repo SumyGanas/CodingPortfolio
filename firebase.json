@@ -19,12 +19,6 @@
     "dist",
     "apphosting.emulator.yaml"
   ],
-  "rewrites": [
-    {
-      "source": "**",
-      "destination": "/index.html"
-    }
-  ],
   "redirects": [
     {
       "source": "**",
@@ -33,6 +27,12 @@
       "condition": {
         "hostname": "sumyganas.com"
       }
+    }
+  ],
+ "rewrites": [
+    {
+      "source": "**",
+      "destination": "/index.html"
     }
   ]
 },
