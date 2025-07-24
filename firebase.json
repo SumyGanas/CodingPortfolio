@@ -19,16 +19,6 @@
     "dist",
     "apphosting.emulator.yaml"
   ],
-  "redirects": [
-    {
-      "source": "**",
-      "destination": "https://www.sumyganas.com",
-      "type": 301,
-      "condition": {
-        "hostname": "sumyganas.com"
-      }
-    }
-  ],
  "rewrites": [
     {
       "source": "**",
