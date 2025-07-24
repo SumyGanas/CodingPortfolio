@@ -21,7 +21,7 @@
   ],
   "redirects": [
     {
-      "source": "**",
+      "source": "https://sumyganas.com",
       "destination": "https://www.sumyganas.com",
       "type": 301,
       "condition": {
