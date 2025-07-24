@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "alpine-figure-414421"
-  }
+  },
+  "targets": {
+    "alpine-figure-414421": {
+      "hosting": {
+        "root": [
+          "sumyganas.com"
+        ],
+        "www": [
+          "www.sumyganas.com"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

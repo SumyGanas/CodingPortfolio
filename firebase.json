@@ -1,6 +1,7 @@
-{ "hosting": {
+{  "hosting": {
   "site": "alpine-figure-414421",
   "public": "dist",
+  "cleanUrls": true,
   "ignore": [
     "firebase.json",
     "**/.*",
@@ -18,11 +19,20 @@
     "dist",
     "apphosting.emulator.yaml"
   ],
+  "rewrites": [
+    {
+      "source": "**",
+      "destination": "/index.html"
+    }
+  ],
   "redirects": [
     {
-      "source": "/",
+      "source": "**",
       "destination": "https://www.sumyganas.com",
-      "type": 301
+      "type": 301,
+      "condition": {
+        "hostname": "sumyganas.com"
+      }
     }
   ]
 },
