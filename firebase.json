@@ -24,9 +24,6 @@
       "destination": "https://www.sumyganas.com",
       "type": 301
     }
-  ],
-  "rewrites": [
-    { "source": "**", "destination": "/index.html" }
   ]
 },
   "emulators": {
