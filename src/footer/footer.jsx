@@ -17,7 +17,7 @@ const FooterBar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-center">
           <Navbar.Text>
-          <TermsOfUse/>
+          <TermsOfUse aria-modal="true"/>
           <br/> 
             <Nav.Item>
               Copyright © 2024 Sumy Ganas   

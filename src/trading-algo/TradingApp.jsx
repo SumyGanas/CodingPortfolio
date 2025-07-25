@@ -34,10 +34,10 @@ const ChartTabs = () => {
         <Col sm={2}>
           <Nav variant="pills" className="flex-column">
             <Nav.Item id="chartTab">
-              <Nav.Link eventKey="spyvsbot" >Spy vs Bot (Last 30 days)</Nav.Link>
+              <Nav.Link eventKey="spyvsbot" aria-description='Chart comparing the performance of the trading bot and SPY index fund'>Spy vs Bot (Last 30 days)</Nav.Link>
             </Nav.Item>
             <Nav.Item id="chartTab">
-              <Nav.Link eventKey="portfolio" >Portfolio (All time)</Nav.Link>
+              <Nav.Link eventKey="portfolio" aria-description='Chart showcasing all time values of the trading bot portfolio'>Portfolio (All time)</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>

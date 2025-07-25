@@ -12,20 +12,20 @@ const CommonAncestor = () => {
   return (
     <div className="card-deck mt-3 mb-3 gx-5 px-5 text-center" id="ancestor_component">
     <div className="card mb-4 box-shadow">
-      <div className="card-header"> <h4 className="lead my-1">Configure your options here </h4> </div>
+      <div className="card-header"> <h4 className="lead my-1" >Configure your options here </h4> </div>
       <div className="card-body" id="aicol">  
       <FormComponent formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} error={error}/>
       <div className='form-or'></div>
-      <img src="/or-gate.png" height={35} width={35} style={{marginRight : "5px"}}></img> OR 
-      <img src="/or-gate1.png" height={35} width={35} style={{marginLeft : "5px"}}></img>
+      <img src="/or-gate.png" height={35} width={35} style={{marginRight : "5px"}} alt='or gate icon'></img> OR 
+      <img src="/or-gate1.png" height={35} width={35} style={{marginLeft : "5px"}} alt='or gate icon'></img>
       <div className='buttonDiv'>
-          <button type="submit" id='button-1' onClick={handleDealSubmit}>Click here to get the best value deals</button>
+          <button type="submit" id='button-1' onClick={handleDealSubmit} role='button' aria-labelledby='Get promotions button'>Click here to get the best value deals</button>
       </div>
       </div>
     </div>
     <div className="card mb-4 box-shadow responseOverlayContainer">
       <div className="card-header"> <h4 className="lead my-1">AI Response (from Google's Gemini)</h4> </div>
-      <div className="card-body" id="airesponse">
+      <div className="card-body" id="airesponse" aria-labelledby='AI response for query'>
         <ResponseComponent response={response} loading={loading} error={error} initialScreen={initialScreen}/>
       </div> 
     </div>
@@ -42,10 +42,10 @@ const FormComponent = ({ formData, handleChange, handleSubmit, error }) => {
 
   return (
     <>
-    <Form method="post" onSubmit={handleSubmit} className='radio-wrapper'>
+    <Form method="post" onSubmit={handleSubmit} className='radio-wrapper' aria-multiselectable="true" aria-description='Form to select your skin, hair and makeup preferences for product reccomendations'>
         <div className='formComponentsList'>
         <div className="mb-3 b1">
-        <p className='preferenceOptions'> Skin type:</p>
+        <p className='preferenceOptions' aria-labelledby='preferenceOptions'> Skin type:</p>
         {skinTypeOptions.map(option => (
           <Form.Check
             key={option}
@@ -62,7 +62,7 @@ const FormComponent = ({ formData, handleChange, handleSubmit, error }) => {
           </div>
         
         <div className="mb-3 b2">
-        <p className='preferenceOptions'>Skin concerns:</p>
+        <p className='preferenceOptions' aria-labelledby='preferenceOptions'>Skin concerns:</p>
         {skinConcernsOptions.map(option => (
             <Form.Check
             key={option}
@@ -79,7 +79,7 @@ const FormComponent = ({ formData, handleChange, handleSubmit, error }) => {
         </div>
         
         <div className="mb-3 b3">
-        <p className='preferenceOptions'>Hair type:</p>
+        <p className='preferenceOptions' aria-labelledby='preferenceOptions'>Hair type:</p>
         {hairTypeOptions.map(option => (
         <Form.Check
             key={option}
@@ -96,7 +96,7 @@ const FormComponent = ({ formData, handleChange, handleSubmit, error }) => {
         </div>
        
         <div className="mb-3 b4">
-        <p className='preferenceOptions'>Hair concerns:</p>
+        <p className='preferenceOptions' aria-labelledby='preferenceOptions'>Hair concerns:</p>
         {hairConcernsOptions.map(option => (
         <Form.Check
             key={option}
@@ -113,7 +113,7 @@ const FormComponent = ({ formData, handleChange, handleSubmit, error }) => {
         </div>
         
         <div className="mb-3 b5">
-        <p className='preferenceOptions'>Makeup preferences:</p>
+        <p className='preferenceOptions' aria-labelledby='preferenceOptions'>Makeup preferences:</p>
         {makeupPrefOptions.map(option => (
         <Form.Check
             key={option}
@@ -158,7 +158,7 @@ const ResponseComponent = ({ response, loading, error, initialScreen} ) => {
     return (
       <>
       <BeatLoader color="#f774d7" speedMultiplier={0.75}/>
-      <div>Please wait a few moments while the AI loads your response...</div>
+      <div>Please wait a few moments while the AI loads your response... It may take up to a minute</div>
     </>
     )
   }
@@ -202,14 +202,14 @@ if(Object.keys(response).length === 3){
                 );
             })}
         <div className='respImg'> 
-        <img src="/eye-shadow.png" width={300} height={300}></img>
+        <img src="/eye-shadow.png" width={300} height={300} alt='cute image of an eyeshadow palette'></img>
         </div>
         </div>
     );
 } else {
   return (
     <>
-    <div className='ai-title-header'>Here are the top 10 best deals today at Ulta (click to shop) </div>
+    <div className='ai-title-header' aria-description='Top 10 best deals today at Ulta'>Here are the top 10 best deals today at Ulta (click to shop) </div>
     <div className='ai-subtitle-header c2s-popup'>(P.S: Click on the product name to navigate to the product website)</div>
     <div>
       <div className='aiListDiv'>
@@ -247,8 +247,8 @@ if(Object.keys(response).length === 3){
 } else {
   return( 
     <>
-    <div className='errorDiv'>Incorrect response generated. Please try again.</div>
-    <div className='errorDiv1'>Gemini AI can return incomplete data due to its limitations as an LLM. Please try again to send it a new prompt.</div>
+    <div className='errorDiv' aria-errormessage='errorDiv'>Invalid response generated. Please try again.</div>
+    <div className='errorDiv1' aria-errormessage='errorDiv1'>Gemini AI can return incomplete data due to its limitations as an LLM. Please try again to send it a new prompt.</div>
     </>
   
 
