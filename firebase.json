@@ -1,6 +1,38 @@
 {  "hosting": {
   "site": "alpine-figure-414421",
   "public": "dist",
+  "headers": [ {
+    "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+    "headers": [ {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    } ]
+  }, {
+    "source": "**/*.@(jpg|jpeg|gif|png|css)",
+    "headers": [ {
+      "key": "Cache-Control",
+      "value": "max-age=7200"
+    } ]
+  }, {
+    "source": "404.html",
+    "headers": [ {
+      "key": "Cache-Control",
+      "value": "max-age=300"
+    } ]
+  }, 
+  {
+    "key": "X-Content-Type-Options",
+    "value": "nosniff"
+  },
+  {
+    "key": "X-Frame-Options",
+    "value": "DENY"
+  },
+  {
+    "key": "Referrer-Policy",
+    "value": "no-referrer"
+  }]
+  ,
   "cleanUrls": true,
   "ignore": [
     "firebase.json",
