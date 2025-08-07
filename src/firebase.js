@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
@@ -14,13 +14,29 @@ const firebaseConfig = {
   measurementId: "G-GZVSWFBF1G"
 };
 
-
 // Initialize Firebase
 
 const firebaseApp = initializeApp(firebaseConfig);
-const analytics = getAnalytics(firebaseApp);
-const auth = getAuth(firebaseApp);
-const db = getFirestore(firebaseApp);
 
-export { auth, db };
+let db;
+const getDb = () => {
+  if (!db) {
+    throw new Error("Firestore not initialized yet. Wait for sign-in.");
+  }
+  return db;
+};
+
+const auth = getAuth(firebaseApp);
+signInAnonymously(auth)
+  .then(() => {
+    db = getFirestore(firebaseApp);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+const analytics = getAnalytics(firebaseApp);
+
+export { auth, getDb };
 
