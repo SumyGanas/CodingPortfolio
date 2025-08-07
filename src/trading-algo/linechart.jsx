@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDb } from '../firebase.js'
+import { db } from '../firebase.js'
 import { Line } from 'react-chartjs-2';
 import { collection, getDocs, limitToLast, orderBy, query } from "firebase/firestore";
 import { useRef, useState, useEffect } from 'react';
@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 
-const db = getDb();
+
 //Gets all of the trading account/portfolio data from portfolio collection
 async function getPortData() {
     const cashArray = []
