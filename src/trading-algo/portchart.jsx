@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDb } from '../firebase.js'
+import { db } from '../firebase.js'
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -24,7 +24,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const db = getDb();
 //Gets all of the trading account/portfolio data from portfolio collection
 async function getPortData() {
     const cashArray = []
