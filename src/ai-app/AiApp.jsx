@@ -164,13 +164,13 @@ def check_if_cached(query: str):
 
     return (
         <>
-        <div className="container " id="nav-bar">
+        <div className="container my-3 " id="nav-bar">
           <HeaderBar />
         </div>
         
         <div className="container sura-regular" id="headerbox">
           <div>  
-          <div className="jumbotron p-3 p-md-5 text-white rounded" id="shopping">
+          <div className="jumbotron text-white rounded" id="shopping">
               <div className="col-md-6 px-0">
                 <h1 className="display-4">AI Shopping Assistant</h1>
                 <p className="lead my-3"> Fully automated AI shopping assistant that processeses daily promotional data from Ulta to recommend products based on customer preferences</p>
@@ -227,7 +227,7 @@ def check_if_cached(query: str):
                       <li>
                       Hosting - Google Cloud Firebase Hosting</li>
                       <li>
-                      Frameworks & Frontend technologies - React, Bootstrap for React, ReactRouter</li>
+                      Frameworks & Frontend technologies - React and Vite</li>
                       </ul>
                       <h6>APIs</h6>
                       <ul>
