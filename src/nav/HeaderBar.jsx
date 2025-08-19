@@ -1,6 +1,6 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react'
 import '../styles/App.css'
 
@@ -18,7 +18,11 @@ const HeaderBar = () => {
               
               <Nav.Link href="/aiassistant" >AI Shopping Assistant Project</Nav.Link>
               <Nav.Link href="https://www.linkedin.com/in/sumy-ganas-201a89308/" target="_blank" rel="noopener noreferrer">LinkedIn</Nav.Link>
-              
+              <NavDropdown title="Github Links" id="nav-dropdown">
+              <NavDropdown.Item eventKey="4.1" href="https://github.com/SumyGanas/CodingPortfolio" target="_blank" rel="noopener noreferrer">Current web app</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item eventKey="4.2" href="https://github.com/SumyGanas/Go-term-cookbook" target="_blank" rel="noopener noreferrer">Golang project</NavDropdown.Item>
+            </NavDropdown>           
             </Nav>
           </Navbar.Collapse>
 
