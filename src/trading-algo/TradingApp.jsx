@@ -201,14 +201,12 @@ return (
         <div className="row gx-5 px-5">
           <div className="col blog-main mx-2 px-5">
             <h1 className="pb-3 pt-3 mb-4 border-bottom"> Algo Trading Visualizer</h1>
-            <p className="blog-post-meta"> April 15, 2024 by <a href="https://www.linkedin.com/in/sumy-ganas-201a89308/" rel="noreferrer" target="_blank">Sumy</a> </p>
               <h2>Introduction</h2>
     <hr/> 
-    <p>This visualization compares the performance of automated <Link title="A number between 0 and 100 that shows how fast a stock's price is rising or falling. A high number (above 70) can mean the stock has gone up too fast and might drop soon. A low number (below 30) can mean it has dropped too much and might go back up" id="t-1"> RSI</Link> and <Link title="A tool that helps spot changes in a stock’s trend. It compares two moving averages of the stock’s price. When the lines cross, it can be a signal to buy or sell. It's used to tell if a stock might start going up or down." id="t-1"> MACD</Link> crossover trading strategies to the performance of the S&amp;P500 index over a fixed window using a paper trading API. The strategy involves evaluating the RSI and MACD values of a stock ticker and returning a corresponding buy or sell signal.</p>
+    <p>This visualization compares the performance of a fully-automated bot employing <Link title="A number between 0 and 100 that shows how fast a stock's price is rising or falling. A high number (above 70) can mean the stock has gone up too fast and might drop soon. A low number (below 30) can mean it has dropped too much and might go back up" id="t-1"> RSI</Link> and <Link title="A tool that helps spot changes in a stock’s trend. It compares two moving averages of the stock’s price. When the lines cross, it can be a signal to buy or sell. It's used to tell if a stock might start going up or down." id="t-1"> MACD</Link> crossover trading strategies to the performance of the S&amp;P500 index over a fixed window using a paper trading API. The strategy involves evaluating the RSI and MACD values of a stock ticker and returning a corresponding buy or sell signal.</p>
     
     <p>The algorithm only evaluates stocks listed on the NYSE,thus making a comprehensive stock index like the S&P 500 index fund (SPY) the best benchmark to compare against. SPY provides a broad view of the economic health of the U.S. because it covers so many companies in so many different sectors. A decrease in the index suggests market profitability is low&#8212; explaining adjacent low points in the portfolio graph.</p> 
-
-    <p>One of the biggest limitations of using paper trading APIs is that they don't account for complex market events such as stock spilts and reverse splits. Unfortunately, the only ways to prevent this are to use a live trading account or manually adjust share prices for each trade. A random, sudden surge or drop in portfolio value from a drastic change in stock price is usually a strong indicator that that API failed to adjust share price following a (reverse) split.</p>
+   
 
     <h2>Software Architecture Diagram</h2>
     <hr/>
@@ -230,9 +228,12 @@ return (
 
   <p>The buy and sell signals occur when both the MACD and RSI indicator values reach their designated ranges. The Indicator data used is EOD data from the previous day, making it a demo version of a strategy that uses real-time data.</p>
 
-    <p>The Cloud Run Function on the GCP server uses the Alpaca Paper Trading and Market Trading APIs to facilitate real time order execution.
-    Read the Alpaca Docs <a href="https://docs.alpaca.markets/docs/paper-trading">here.</a></p>
     
+    <h2>Implementation Discussion and Potential Optimizations:</h2>
+    <hr/>
+    <p>One of the biggest limitations of using paper trading APIs is that they don't account for complex market events such as stock spilts and reverse splits. Unfortunately, the only ways to prevent this are to use a live trading account or manually adjust share prices retroactively for each trade. While a random, sudden surge or drop in portfolio value from a drastic change in stock price can be an indicator of a (reverse) split, it is impossible to know for sure without checking.</p>
+
+    <p>The Cloud Run Function on the GCP server uses the Alpaca Paper Trading and Market Trading APIs to facilitate real time execution of market transactions. Read the Alpaca Docs <a href="https://docs.alpaca.markets/docs/paper-trading">here.</a></p>
    
     <h6><strong>Specs:</strong></h6>
     <h6>The Back-end</h6>
