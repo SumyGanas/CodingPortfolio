@@ -64,10 +64,6 @@ pre[class*="language-"] {
 	background: #252e52ed;
 }
 
-/* :not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	 */
-
 :not(pre) > code[class*="language-"] {
 	padding: 0.2em;
 	border-radius: 0.2em;
@@ -76,7 +72,10 @@ pre[class*="language-"] {
 	background: #555965c3;
 }
 
-.token.comment,
+.token.comment {
+	color: rgb(167, 168, 171) !important; 
+}
+
 .token.prolog,
 .token.cdata {
 	color: rgb(99, 119, 119);
