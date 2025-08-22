@@ -23,11 +23,14 @@ jobs:
           VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+      - name: Write redirects.json
+        run: echo '${{ secrets.FIREBASE_TMPRS }}' > redirects.json
+      - name: Build firebase.json
+        run: jq --exit-status '.hosting.redirects = (input)' firebase.json.tmp redirects.json > firebase.json
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALPINE_FIGURE_414421 }}
           channelId: live
           projectId: alpine-figure-414421
-        
           
