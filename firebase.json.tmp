@@ -68,18 +68,10 @@
     "firestore-debug.log",
     "ui-debug.log",
     "dist",
-    "apphosting.emulator.yaml"
+    "apphosting.emulator.yaml",
+    ".local.firebase.json.template"
   ],
-  "redirects": [
-    {
-      "source": "https://sumyganas.com",
-      "destination": "https://www.sumyganas.com",
-      "type": 301,
-      "condition": {
-        "hostname": "sumyganas.com"
-      }
-    }
-  ],
+  "redirects": [],
  "rewrites": [
     {
       "source": "**",

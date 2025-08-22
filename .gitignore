@@ -10,3 +10,4 @@ firestore-debug.log
 ui-debug.log
 dist/
 apphosting.emulator.yaml
+.local.firebase.json.template
