@@ -26,13 +26,10 @@ jobs:
       - name: Write redirects.json
         run: echo '${{ secrets.FIREBASE_TMPRS }}' > redirects.json
       - name: Build firebase.json
-        run: jq --exit-status '.hosting.redirects = (input)' firebase.json.tmp redirects.json > firebase.json
-      - name: Show merge
-        run: jq '.hosting.redirects' firebase.json   
+        run: jq --exit-status '.hosting.redirects = (input)' firebase.json.tmp redirects.json > firebase.json  
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALPINE_FIGURE_414421 }}
           channelId: live
           projectId: alpine-figure-414421
-          
