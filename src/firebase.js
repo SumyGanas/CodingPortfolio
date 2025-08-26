@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
@@ -20,7 +20,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);
 const auth = getAuth(firebaseApp);
 const appCheck = initializeAppCheck(firebaseApp, {
-  provider: new ReCaptchaV3Provider(recaptchaKey),
+  provider: new ReCaptchaEnterpriseProvider(recaptchaKey),
   isTokenAutoRefreshEnabled: true
 });
 
