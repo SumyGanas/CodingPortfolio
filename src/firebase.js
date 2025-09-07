@@ -19,6 +19,7 @@ const recaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
 const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);
 const auth = getAuth(firebaseApp);
+self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 const appCheck = initializeAppCheck(firebaseApp, {
   provider: new ReCaptchaEnterpriseProvider(recaptchaKey),
   isTokenAutoRefreshEnabled: true
