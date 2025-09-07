@@ -4,8 +4,7 @@ import ResponseComponent from './ResponseComponent';
 import FormComponent from './FormComponent';
 import '../styles/App.css';
 
-//const function_url = 'https://receive-query-dy3kdkbuyq-uc.a.run.app'
-const function_url = "http://127.0.0.1:5001/alpine-figure-414421/us-central1/receive_query" //test
+const function_url = 'https://receive-query-dy3kdkbuyq-uc.a.run.app'
 
 const AiComponent = () => {
   const { formData, handleChange, handleSubmit, response, loading, err, initialScreen, handleDealSubmit, error } = useFormdata(function_url);
