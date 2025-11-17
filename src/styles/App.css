@@ -470,4 +470,7 @@ div.errorDiv1 {
   font-style: normal;
 }
 
-
+.no-active.active {
+  background-color: transparent !important;
+  color: inherit !important;
+}
