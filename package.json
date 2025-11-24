@@ -5,21 +5,26 @@
     "dev": "vite",
     "build": "vite build",
     "test": "vitest",
-    "preview":"vite preview",
-    "start": "vite serve --port=8080 --host"
+    "preview": "vite preview",
+    "start": "vite serve --port=8080 --host",
+    "config:reset": "cp firebase.json.tmp firebase.json",
+    "config:host-gen": "jq '.emulators[] |= (if type == \"object\" then . + {\"host\": \"0.0.0.0\"} else . end)' firebase.json > firebase.json.mod",
+    "config:host-apply": "mv firebase.json.mod firebase.json",
+    "config:patch-host": "npm run config:host-gen && npm run config:host-apply",
+    "setup:dev": "npm run config:reset && npm run config:patch-host"
   },
   "type": "module",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "firebase-tools":"14.11.0",
     "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^4.6.0",
     "axios": "^1.10.0",
     "bootstrap": "^5.3.7",
     "chart.js": "^4.5.0",
     "firebase": "^11.10.0",
+    "firebase-tools": "^14.11.0",
     "prismjs": "^1.30.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
@@ -30,7 +35,6 @@
     "vite": "^7.0.4",
     "web-vitals": "^5.0.3"
   },
-
   "eslintConfig": {
     "extends": [
       "react-app",
