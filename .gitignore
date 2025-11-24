@@ -11,3 +11,4 @@ ui-debug.log
 dist/
 apphosting.emulator.yaml
 .local.*
+.devcontainer/*
