@@ -8,6 +8,8 @@ export default defineConfig({
   },
   server: {
     historyApiFallback: true,
+    host: true,
+    port: 5173,
   },
   preview: {
     historyApiFallback: true,
