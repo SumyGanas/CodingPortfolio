@@ -69,7 +69,7 @@
     "ui-debug.log",
     "dist",
     "apphosting.emulator.yaml",
-    ".local.firebase.json.template"
+    ".local.redirects.private.json"
   ],
   "redirects": [],
  "rewrites": [
@@ -81,11 +81,26 @@
 },
   "emulators": {
     "singleProjectMode": true,
+    "auth": {
+      "port": 9099,
+      "host": "0.0.0.0"
+    },
+    "functions": {
+      "port": 5001,
+      "host": "0.0.0.0"
+    },
     "firestore": {
-      "port": 8080
+      "port": 8080,
+      "host": "0.0.0.0"
+    },
+    "hosting": {
+      "port": 5000,
+      "host": "0.0.0.0"
     },
     "ui": {
-      "enabled": true
+      "enabled": true,
+      "port": 4000,
+      "host": "0.0.0.0"
     }
   },
   "firestore": {
