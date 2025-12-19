@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import HeaderBar from '../nav/HeaderBar.jsx';
 import CommonAncestor from './AiComponent.jsx';
 import Prism from 'prismjs';

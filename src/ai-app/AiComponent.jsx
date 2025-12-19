@@ -1,4 +1,3 @@
-import React from 'react';
 import useFormdata from './formDataHandler'; 
 import ResponseComponent from './ResponseComponent';
 import FormComponent from './FormComponent';
