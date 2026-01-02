@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-
 const useFormdata = (functionUrl) => {
     const [formData, setFormData] = useState({
       skin_types: '',
@@ -19,10 +18,10 @@ const useFormdata = (functionUrl) => {
   
     const handleChange = (e) => {
       const { name, value } = e.target;
-      setFormData({
-        ...formData,
+      setFormData( prev => ({
+        ...prev,
         [name]: value
-      });
+      }));
     };
 
     var err = null;
