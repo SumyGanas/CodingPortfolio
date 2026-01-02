@@ -251,11 +251,10 @@ div.aiListDiv {
   position: relative;
 }
 
-p.prices {
+.prices {
   margin-left: 10px;
-  font-weight: 700;
+  font-weight: 900;
   color: #26425D;
-  display: inline-flex;
 }
 
 p.prices div {
