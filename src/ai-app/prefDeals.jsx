@@ -1,4 +1,5 @@
 import '../styles/App.css';
+import { Fragment } from 'react';
 
 const PrefDeals = ({response}) => {
 
@@ -9,7 +10,7 @@ const PrefDeals = ({response}) => {
     {Object.entries(response || {}).map(([categoryName, products]) => {
     // const products = response?.[categoryName] || [];
         return(
-            <>
+             <Fragment key={categoryName}>
                 <div className='category-header'>
                   <h4>{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h4>
                   </div>
@@ -51,13 +52,14 @@ const PrefDeals = ({response}) => {
                           })}
                     </ol>
                     </div>
-                    </> 
+                    </Fragment>        
         );
     })}
     </div>
   <div className='respImg'> 
   <img src="/eye-shadow.png" width={300} height={300} alt='cute image of an eyeshadow palette'></img>
   </div>
+  
   </>
 )}
 
